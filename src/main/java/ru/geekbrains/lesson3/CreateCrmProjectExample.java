@@ -1,11 +1,9 @@
 package ru.geekbrains.lesson3;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -18,7 +16,12 @@ public class CreateCrmProjectExample {
 
     public static void main(String[] args) throws InterruptedException {
         WebDriverManager.chromedriver().setup();
+
+//        scenarioWithExtention();
+
         driver = new ChromeDriver();
+//        runJsScriptExample();
+
         WebDriverWait webDriverWait = new WebDriverWait(driver, 5);
 
         loginToCrm();
@@ -101,5 +104,33 @@ public class CreateCrmProjectExample {
         driver.findElement(By.id("prependedInput")).sendKeys("Applanatest1");
         driver.findElement(By.id("prependedInput2")).sendKeys("Student2020!");
         driver.findElement(By.xpath("//button[@class='btn btn-large  btn-primary pull-right']")).click();
+    }
+
+    public static void scenarioWithExtention () throws InterruptedException {
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("user-data-dir=D:/_GeekBrains/Test automation Web UI/geek_web_ui_tests/src/main/resources/chrome_profile");
+        driver = new ChromeDriver(chromeOptions);
+        driver.get("https://afisha.ru");
+        Thread.sleep(10000);
+    }
+
+    public static void runJsScriptExample () throws InterruptedException {
+        driver.get("https://afisha.ru");
+        JavascriptExecutor javascriptExecutor = (JavascriptExecutor) driver;
+
+        javascriptExecutor.executeScript("function getElementByXpath(path) {\n" +
+                "         return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;\n" +
+                "      }\n" +
+                "      \n" +
+                "      getElementByXpath(\"//div[@data-test='HONEY-AD AD-ad_1']\").remove();");
+
+        Thread.sleep(10000);
+
+        // Script для удаления элемента на странице по Xpath
+        // function getElementByXpath(path) {
+        //         return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+        //      }
+        //      getElementByXpath("//div[@data-test='HONEY-AD AD-ad_1']").remove();
+
     }
 }

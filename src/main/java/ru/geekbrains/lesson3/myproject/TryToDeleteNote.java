@@ -31,9 +31,10 @@ public class TryToDeleteNote {
         driver.findElement(By.xpath("//div[text()='Скрытые']")).click();
 
         webDriverWait.until(ExpectedConditions
-                .visibilityOfAllElementsLocatedBy(By.xpath("//div[contains(@id, 'hook_Block_mediatopic')]")));
+                .presenceOfAllElementsLocatedBy(By.xpath("//div[contains(@id, 'hook_Block_mediatopic')]")));
+
         List<WebElement> webElementList = driver.findElements(By.xpath("//div[contains(@id, 'hook_Block_mediatopic')]"));
-//        System.out.println("Notes number: " + webElementList.size());
+        System.out.println("Notes number: " + webElementList.size());
 
         Actions actions = new Actions(driver);
         for (int i = 0; i < webElementList.size(); i++) {
