@@ -3,15 +3,18 @@ package ru.geekbrains.lesson4.homework;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import ru.geekbrains.lesson4.utils.TimingExtension;
 
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+@ExtendWith(TimingExtension.class)
 public class TriangleTest {
-    private static Logger logger = LoggerFactory.getLogger(TriangleTest.class);
+    private static final Logger logger = LoggerFactory.getLogger(TriangleTest.class);
 
     @BeforeAll
     static void beforeAll() {
