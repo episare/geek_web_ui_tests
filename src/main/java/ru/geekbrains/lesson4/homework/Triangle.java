@@ -48,11 +48,11 @@ public class Triangle {
 
     @Override
     public String toString() {
-        return "Triangle{" +
-                "a=" + a +
-                ", b=" + b +
-                ", c=" + c +
-                '}';
+        return "Triangle{"
+                + "a=" + a
+                + ", b=" + b
+                + ", c=" + c
+                + '}';
     }
 
     public static void main(String[] args) {
