@@ -12,12 +12,15 @@ public class ExpensesSubmenu extends BaseView {
         super(driver);
     }
 
-    @FindBy(xpath = "//span[text()='Заявки на расходы']")
+    @FindBy(xpath = expensesRequestsMenuItemXpathLocator)
     public WebElement expensesRequestsMenuItem;
 
     public void goToExpensesRequestsPage() {
+        webDriverWait.until(ExpectedConditions.elementToBeClickable(By.xpath(expensesRequestsMenuItemXpathLocator)));
         expensesRequestsMenuItem.click();
         webDriverWait.until(ExpectedConditions.presenceOfElementLocated(By
                 .xpath(ExpensesRequestsPage.createExpenseXpathLocator)));
     }
+
+    public static final String expensesRequestsMenuItemXpathLocator = "//span[text()='Заявки на расходы']";
 }

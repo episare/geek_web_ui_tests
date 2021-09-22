@@ -2,7 +2,7 @@ package ru.geekbrains.lesson6.myproject;
 
 import org.junit.jupiter.api.Test;
 
-public class MyPageTest extends BaseTest{
+public class MyPageTest extends BaseTest {
     public static final String BASE_URL = "https://ok.ru";
 
     @Test
@@ -14,11 +14,14 @@ public class MyPageTest extends BaseTest{
                 .loginButton.click();
 
         new ToolbarMenu(driver).openToolbarItem("Друзья");
+        Thread.sleep(2000);
 
         driver.get(BASE_URL);
-        new MainSideNavigationMenu(driver).getSideMenuItem("Заметки").click();
-        new PortletSideNavigationMenu(driver).getPortletMenuItem("Скрытые").click();
 
-        Thread.sleep(5000);
+        new MainSideNavigationMenu(driver).getSideMenuItem("Заметки").click();
+        Thread.sleep(2000);
+
+        new PortletSideNavigationMenu(driver).getPortletMenuItem("Скрытые").click();
+        Thread.sleep(2000);
     }
 }
