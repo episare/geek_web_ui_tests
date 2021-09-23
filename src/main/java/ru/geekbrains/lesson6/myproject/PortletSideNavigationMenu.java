@@ -19,7 +19,7 @@ public class PortletSideNavigationMenu extends BaseView{
     List<WebElement> portletSideMenuItems;
 
     public WebElement getPortletMenuItem(String menuItemName) throws MenuItemNotFoundException, InterruptedException {
-        webDriverWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='nav-side ']/*")));
+        webDriverWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(portletSideMenuItemsXpathLocator)));
         return getMenuItem(portletSideMenuItems, menuItemName);
     }
 
