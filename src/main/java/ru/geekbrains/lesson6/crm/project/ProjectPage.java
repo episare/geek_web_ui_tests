@@ -1,5 +1,6 @@
 package ru.geekbrains.lesson6.crm.project;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,7 +16,9 @@ public class ProjectPage extends BaseView {
     @FindBy(xpath = createProjectXpathLocator)
     public WebElement createProjectButton;
 
+    @Step("Создать новый проект")
     public CreateProjectPage createProject() {
+        webDriverWait.until(ExpectedConditions.elementToBeClickable(By.xpath(createProjectXpathLocator)));
         createProjectButton.click();
         webDriverWait.until(ExpectedConditions
                 .presenceOfElementLocated(By.xpath(CreateProjectPage.projectSaveAndCloseButtonXpathLocator)));

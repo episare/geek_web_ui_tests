@@ -1,5 +1,6 @@
 package ru.geekbrains.lesson6.crm.expense;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,6 +16,7 @@ public class ExpensesRequestsPage extends BaseView {
     @FindBy(xpath = createExpenseXpathLocator)
     public WebElement createExpenseButton;
 
+    @Step("Создать заявку на расход")
     public CreateExpensePage createExpense() {
         createExpenseButton.click();
         webDriverWait.until(ExpectedConditions

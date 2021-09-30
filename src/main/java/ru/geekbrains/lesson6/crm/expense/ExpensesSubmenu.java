@@ -1,5 +1,6 @@
 package ru.geekbrains.lesson6.crm.expense;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,6 +16,7 @@ public class ExpensesSubmenu extends BaseView {
     @FindBy(xpath = expensesRequestsMenuItemXpathLocator)
     public WebElement expensesRequestsMenuItem;
 
+    @Step("Перейти на страницу заявок на расходы")
     public void goToExpensesRequestsPage() {
         webDriverWait.until(ExpectedConditions.elementToBeClickable(By.xpath(expensesRequestsMenuItemXpathLocator)));
         expensesRequestsMenuItem.click();

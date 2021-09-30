@@ -1,5 +1,6 @@
 package ru.geekbrains.lesson6.myproject;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -17,6 +18,7 @@ public class ToolbarMenu extends BaseView {
     //div[@class='toolbar_nav_i_tooltip_cnt']
     List<WebElement> toolbarMenu;
 
+    @Step("Открываем верхнее меню")
     public void openToolbarItem(String itemName) {
 
         for (WebElement item : toolbarMenu) {
