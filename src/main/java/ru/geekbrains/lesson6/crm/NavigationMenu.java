@@ -1,5 +1,6 @@
 package ru.geekbrains.lesson6.crm;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -15,6 +16,7 @@ public class NavigationMenu extends BaseView {
     @FindBy(xpath = "//ul[@class='nav nav-multilevel main-menu']/li")
     List<WebElement> navigationMenuItems;
 
+    @Step("Открыть навигационное меню")
     public void openNavigationMenuItem(String menuName) {
         Actions actions = new Actions(driver);
         actions.moveToElement(navigationMenuItems.stream()

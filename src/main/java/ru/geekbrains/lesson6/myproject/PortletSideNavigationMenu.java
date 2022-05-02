@@ -1,5 +1,6 @@
 package ru.geekbrains.lesson6.myproject;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -18,6 +19,7 @@ public class PortletSideNavigationMenu extends BaseView{
     @FindBy(xpath = portletSideMenuItemsXpathLocator)
     List<WebElement> portletSideMenuItems;
 
+    @Step("Открываем Potlet меню")
     public WebElement getPortletMenuItem(String menuItemName) throws MenuItemNotFoundException, InterruptedException {
         webDriverWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(portletSideMenuItemsXpathLocator)));
         return getMenuItem(portletSideMenuItems, menuItemName);

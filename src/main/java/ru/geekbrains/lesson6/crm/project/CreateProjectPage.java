@@ -1,5 +1,6 @@
 package ru.geekbrains.lesson6.crm.project;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -19,6 +20,7 @@ public class CreateProjectPage extends BaseView {
     @FindBy(name = "crm_project[name]")
     public WebElement projectName;
 
+    @Step("Ввести имя проекта")
     public CreateProjectPage fillProjectName(String name) {
         projectName.sendKeys(name);
         return this;
@@ -33,6 +35,7 @@ public class CreateProjectPage extends BaseView {
     @FindBy(xpath = listOrganisationsToPatternXpathLocator)
     public List<WebElement> listOrganisationsToPattern;
 
+    @Step("Выбрать организацию по паттерну")
     public CreateProjectPage selectOrganisationToPattern(String pattern) {
         dropDownOrganisation.click();
         inputPatternOrganisation.sendKeys(pattern);
@@ -46,6 +49,7 @@ public class CreateProjectPage extends BaseView {
     @FindBy(name = "crm_project[priority]")
     public WebElement selectPriority;
 
+    @Step("Выбрать приоритет")
     public CreateProjectPage selectPriority(String priority) {
         new Select(selectPriority).selectByVisibleText(priority);
         return this;
@@ -54,6 +58,7 @@ public class CreateProjectPage extends BaseView {
     @FindBy(name = "crm_project[financeSource]")
     public WebElement selectFinanceSource;
 
+    @Step("Выбрать источник финансов")
     public CreateProjectPage selectFinanceSource(String source) {
         new Select(selectFinanceSource).selectByVisibleText(source);
         return this;
@@ -62,6 +67,7 @@ public class CreateProjectPage extends BaseView {
     @FindBy(name = "crm_project[businessUnit]")
     public WebElement selectBusynessUnit;
 
+    @Step("Выбрать бизнес юнит")
     public CreateProjectPage selectBusynessUnit(String unit) {
         new Select(selectBusynessUnit).selectByVisibleText(unit);
         return this;
@@ -70,6 +76,7 @@ public class CreateProjectPage extends BaseView {
     @FindBy(name = "crm_project[curator]")
     public WebElement selectCurator;
 
+    @Step("Выбрать куратора")
     public CreateProjectPage selectCurator(String curator) {
         new Select(selectCurator).selectByVisibleText(curator);
         return this;
@@ -78,6 +85,7 @@ public class CreateProjectPage extends BaseView {
     @FindBy(name = "crm_project[rp]")
     public WebElement selectRp;
 
+    @Step("Выбрать RP")
     public CreateProjectPage selectRp(String rp) {
         new Select(selectRp).selectByVisibleText(rp);
         return this;
@@ -86,6 +94,7 @@ public class CreateProjectPage extends BaseView {
     @FindBy(name = "crm_project[manager]")
     public WebElement selectManager;
 
+    @Step("Выбрать менеджера")
     public CreateProjectPage selectManager(String manager) {
         new Select(selectManager).selectByVisibleText(manager);
         return this;
@@ -97,12 +106,13 @@ public class CreateProjectPage extends BaseView {
     @FindBy(xpath = "//div[@id='select2-drop']//input")
     public WebElement inputPatternContact;
 
+    @Step("Выбрать контакт по паттерну")
     public CreateProjectPage selectContactToPattern(String pattern) {
         webDriverWait.until(ExpectedConditions
                 .presenceOfElementLocated(By.xpath("//div[@class='select2-container select2']")));
         dropDownContactPerson.click();
 
-    inputPatternContact.sendKeys(pattern);
+        inputPatternContact.sendKeys(pattern);
         inputPatternContact.sendKeys(Keys.ENTER);
         return this;
     }

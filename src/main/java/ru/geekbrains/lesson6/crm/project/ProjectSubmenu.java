@@ -1,5 +1,6 @@
 package ru.geekbrains.lesson6.crm.project;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,6 +16,7 @@ public class ProjectSubmenu extends BaseView {
     @FindBy(xpath = projectMenuItemXpathLocator)
     public WebElement projectMenuItem;
 
+    @Step("Перейти на страницу создания проекта")
     public void goToProjectPage() {
         webDriverWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(projectMenuItemXpathLocator)));
         webDriverWait.until(ExpectedConditions.elementToBeClickable(By.xpath(projectMenuItemXpathLocator)));
